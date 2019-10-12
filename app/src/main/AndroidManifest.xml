@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fictionBooksActivity"></activity>
+        <activity android:name=".spiritualBooksActivity"></activity>
+        <activity android:name=".fictionBooksActivity" />
         <activity android:name=".categoryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
