@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.buttontolibrary) Button libraryButton;
 
     @Override
@@ -22,13 +22,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ButterKnife.bind(this);
-        libraryButton.setOnClickListener(new View.OnClickListener() {
+        libraryButton.setOnClickListener(this);
+    }
             @Override
             public void onClick(View v) {
+        if(v == libraryButton) {
 
-                Intent intent = new Intent(MainActivity.this, categoryActivity.class);
-                startActivity(intent);
+            Intent intent = new Intent(MainActivity.this, categoryActivity.class);
+            startActivity(intent);
+        }
             }
-        });
+
     }
-}
+
