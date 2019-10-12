@@ -10,16 +10,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private Button libraryButton;
+    @BindView(R.id.buttontolibrary) Button libraryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        libraryButton = (Button)findViewById(R.id.buttontolibrary);
-
+        ButterKnife.bind(this);
         libraryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
