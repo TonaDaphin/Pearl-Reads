@@ -6,8 +6,8 @@ import android.os.Bundle;
 
 public class fictionBooksActivity extends AppCompatActivity {
 
-    private String[] books = new String[] {"The Great Controversy", "The Desire of Ages",
-            "Steps to Christ", "Country Living", "Last Day Events", "In Heavenly Places",
+    private String[] books = new String[] {"Deception Point", "Hello, Darkness",
+            "The Fault in our stars", "Divergent", "Insurgent", "The Hunger Games",
             "Knight", "Legend", "Warsong", "Orison",
             "Cosmos", "Nether", "Born A Crime",
             "Amethyst", "Onyx"};
