@@ -21,6 +21,15 @@
         android:textColor="@color/colorPrimaryText"
         android:text="Pearl Reads"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Books  "
+        android:id="@+id/userTextView"
+        android:layout_below="@+id/appTitle"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 
     <Button
         android:id="@+id/buttontofiction"
@@ -29,8 +38,8 @@
         android:text="Fiction"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="400dp"
-        android:layout_marginLeft= "250dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginLeft= "230dp"
         />
     <Button
         android:id="@+id/buttontospiritual"
@@ -39,8 +48,8 @@
         android:text="Spiritual"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
-        android:layout_marginBottom="400dp"
-        android:layout_marginLeft="70dp"
+        android:layout_marginBottom="300dp"
+        android:layout_marginLeft="50dp"
         />
 
 

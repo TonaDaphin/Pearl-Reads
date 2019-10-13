@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class categoryActivity extends AppCompatActivity {
     private Button fictionButton;
     private Button spiritualButton;
+    private TextView usernameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +19,7 @@ public class categoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
 
 
+        usernameTextView = (TextView) findViewById(R.id.userTextView);
         fictionButton = (Button)findViewById(R.id.buttontofiction);
         spiritualButton = (Button)findViewById(R.id.buttontospiritual);
 
@@ -36,6 +39,8 @@ public class categoryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        usernameTextView.setText( name + "'s Library");
     }
 }
