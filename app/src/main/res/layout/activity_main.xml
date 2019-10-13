@@ -21,6 +21,16 @@
     android:textColor="@color/colorPrimaryText"
     android:text="Pearl Reads"/>
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/locationEditText"
+        android:background="@color/colorTextIcons"
+        android:layout_above="@+id/buttontolibrary"
+        android:layout_marginBottom="90dp"
+        android:padding="8dp"
+        android:hint="Enter your name to go to your Library"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/buttontolibrary"

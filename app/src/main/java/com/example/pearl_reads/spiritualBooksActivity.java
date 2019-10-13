@@ -18,7 +18,7 @@ public class spiritualBooksActivity extends AppCompatActivity {
     private String[] spirituals = new String[] {"The Great Controversy", "The Desire of Ages",
             "Steps to Christ", "Country Living", "Last Day Events", "In Heavenly Places",
             "The Impending Conflict", "Early Writings", "Counsels on Health", "Education",
-            "ending Conflicts", "The Story of Redemption", "Prophets and Kings", "Patriachs and Prophets",
+            "The Story of Redemption", "Prophets and Kings", "Patriachs and Prophets",
             "Christ Object lessons", "Blessings on the Mount"};
 
 

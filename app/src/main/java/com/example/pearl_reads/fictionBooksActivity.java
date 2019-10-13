@@ -18,9 +18,10 @@ import butterknife.ButterKnife;
 public class fictionBooksActivity extends AppCompatActivity {
 
     private ListView fictionListView;
+    private TextView fictionTextView;
 
-    @BindView(R.id.fictionTextView) TextView fictionTextView;
-    @BindView(R.id.fictlistView) TextView fictionlistView;
+//    @BindView(R.id.fictionTextView) TextView fictionTextView;
+//    @BindView(R.id.fictlistView) TextView fictionlistView;
 
 
     private String[] fictionals = new String[] {"Deception Point", "Hello, Darkness",
@@ -33,7 +34,7 @@ public class fictionBooksActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fiction_books);
-        ButterKnife.bind(this);
+//        ButterKnife.bind(this);
 
         fictionListView = (ListView) findViewById(R.id.fictlistView);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, fictionals);
