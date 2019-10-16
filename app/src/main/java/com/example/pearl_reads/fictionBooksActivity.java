@@ -29,11 +29,6 @@ public class fictionBooksActivity extends AppCompatActivity {
             "Knight", "Legend", "Warsong", "Orison",
             "Cosmos", "Nether", "Born A Crime",
             "Amethyst", "Onyx"};
-    private String[] fictionauthors = new String[] {"Dan Brown", "Sandra Brown",
-            "John Green", "Veronica", "Roth", "Everdeen",
-            "Lovely", "Onyx", "Sandra Brown", "Everdeen",
-            "Casandra", "Darkdeen", "Trevor Noah",
-            "Divergent", "Orison"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
