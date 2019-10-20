@@ -1,4 +1,4 @@
-package com.example.pearl_reads;
+package com.example.pearl_reads.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.pearl_reads.R;
 
 public class spiritualBooksActivity extends AppCompatActivity {
 

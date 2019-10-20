@@ -1,3 +1,5 @@
+package com.example.pearl_reads;
+
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
@@ -15,8 +17,8 @@ public class FictionArrayAdapter extends ArrayAdapter {
     @Override
     public Object getItem(int position) {
         String fiction = fictionals[position];
-        String authors = fictionauthors[position];
-        return String.format("%s \nAuthor: %s", fiction, authors);
+        String categories = fictionauthors[position];
+        return String.format("%s \nCategory: %s", fiction, categories);
     }
 
     @Override

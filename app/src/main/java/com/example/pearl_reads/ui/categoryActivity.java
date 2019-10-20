@@ -1,4 +1,4 @@
-package com.example.pearl_reads;
+package com.example.pearl_reads.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.pearl_reads.R;
 
 public class categoryActivity extends AppCompatActivity {
     private Button fictionButton;
