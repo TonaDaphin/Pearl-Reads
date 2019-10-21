@@ -1,6 +1,8 @@
 package com.example.pearl_reads.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,8 @@ import android.widget.Toast;
 
 import com.example.pearl_reads.R;
 import com.example.pearl_reads.SpiritualArrayAdapter;
+import com.example.pearl_reads.adapters.CanadaListAdapter;
+import com.example.pearl_reads.adapters.FictionListAdapter;
 import com.example.pearl_reads.models.Bookstoresearch;
 import com.example.pearl_reads.models.Business;
 import com.example.pearl_reads.models.Category;
@@ -30,8 +34,8 @@ import retrofit2.Response;
 public class spiritualBooksActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.spiritualTextView) TextView spiritualTextView;
-    @BindView(R.id.spilistView) ListView spiritualListView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
+    private CanadaListAdapter mAdapter;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
@@ -50,21 +54,14 @@ public class spiritualBooksActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Business> bookstoreList = response.body().getBusinesses();
-                    String[] bookstore = new String[bookstoreList.size()];
-                    String[] categories = new String[bookstoreList.size()];
+                    List<Business> mBookstores = response.body().getBusinesses();
+                    mAdapter = new CanadaListAdapter(spiritualBooksActivity.this, mBookstores);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(spiritualBooksActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
 
-                    for (int i = 0; i < bookstore.length; i++){
-                        bookstore[i] = bookstoreList.get(i).getName();
-                    }
-
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = bookstoreList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-
-                    ArrayAdapter adapter = new SpiritualArrayAdapter(spiritualBooksActivity.this, android.R.layout.simple_list_item_1, bookstore, categories);
-                    spiritualListView.setAdapter(adapter);
 
                     showBookstores();
                 } else {
@@ -83,15 +80,6 @@ public class spiritualBooksActivity extends AppCompatActivity {
 
 
         ButterKnife.bind(this);
-
-        spiritualListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(spiritualBooksActivity.this, restaurant, Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
 
     private void showFailureMessage() {
@@ -105,8 +93,8 @@ public class spiritualBooksActivity extends AppCompatActivity {
     }
 
     private void showBookstores() {
-        spiritualListView.setVisibility(View.VISIBLE);
-        spiritualTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
+
     }
 
     private void hideProgressBar() {

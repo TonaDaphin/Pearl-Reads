@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp">
-    tools:context="com.example.daphintona.RestaurantsActivity">
+    tools:context=".ui.BookstoresListActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -1,6 +1,8 @@
 package com.example.pearl_reads.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.pearl_reads.FictionArrayAdapter;
 import com.example.pearl_reads.R;
+import com.example.pearl_reads.adapters.FictionListAdapter;
 import com.example.pearl_reads.network.YelpApi;
 import com.example.pearl_reads.network.YelpClient;
 import com.example.pearl_reads.models.Bookstoresearch;
@@ -30,12 +33,11 @@ import retrofit2.Response;
 public class fictionBooksActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.fictionTextView) TextView fictionTextView;
-    @BindView(R.id.fictlistView) ListView fictionlistView;
+    @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
-
+    private FictionListAdapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,18 +52,16 @@ public class fictionBooksActivity extends AppCompatActivity {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    List<Business> bookstoresList = response.body().getBusinesses();
-                    String[] bookstores = new String[bookstoresList.size()];
-                    String[] categories = new String[bookstoresList.size()];
-                    for (int i = 0; i < bookstores.length; i++){
-                        bookstores[i] = bookstoresList.get(i).getName();
-                    }
-                    for (int i = 0; i < categories.length; i++) {
-                        Category category = bookstoresList.get(i).getCategories().get(0);
-                        categories[i] = category.getTitle();
-                    }
-                    ArrayAdapter adapter = new FictionArrayAdapter(fictionBooksActivity.this, android.R.layout.simple_list_item_1, bookstores, categories);
-                    fictionlistView.setAdapter(adapter);
+
+                    List<Business> mBookstores = response.body().getBusinesses();
+                    mAdapter = new FictionListAdapter(fictionBooksActivity.this, mBookstores);
+                    mRecyclerView.setAdapter(mAdapter);
+                    RecyclerView.LayoutManager layoutManager =
+                            new LinearLayoutManager(fictionBooksActivity.this);
+                    mRecyclerView.setLayoutManager(layoutManager);
+                    mRecyclerView.setHasFixedSize(true);
+
+
                     showBookstores();
                 }else{
                     showUnsuccessfulMessage();
@@ -76,16 +76,6 @@ public class fictionBooksActivity extends AppCompatActivity {
         });
 
         ButterKnife.bind(this);
-
-        fictionlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String restaurant = ((TextView)view).getText().toString();
-                Toast.makeText(fictionBooksActivity.this, restaurant, Toast.LENGTH_LONG).show();
-            }
-
-        });
-
     }
     private void showFailureMessage() {
         mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
@@ -96,8 +86,7 @@ public class fictionBooksActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
     private void showBookstores() {
-        fictionlistView.setVisibility(View.VISIBLE);
-        fictionTextView.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.VISIBLE);
     }
     private void hideProgressBar() {
         mProgressBar.setVisibility(View.GONE);
