@@ -18,7 +18,7 @@ public class Business {
     private String name;
     @SerializedName("image_url")
     @Expose
-    private String imageUrl;
+    private String image_url;
     @SerializedName("is_closed")
     @Expose
     private Boolean isClosed;
@@ -75,19 +75,19 @@ public class Business {
      * @param reviewCount
      * @param phone
      * @param price
-     * @param imageUrl
+     * @param image_url
      * @param name
      * @param alias
      * @param location
      * @param id
      * @param categories
      */
-    public Business(String id, String alias, String name, String imageUrl, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, List<Object> transactions, String price, Location location, String phone, String displayPhone, Double distance) {
+    public Business(String id, String alias, String name, String image_url, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, List<Object> transactions, String price, Location location, String phone, String displayPhone, Double distance) {
         super();
         this.id = id;
         this.alias = alias;
         this.name = name;
-        this.imageUrl = imageUrl;
+        this.image_url = image_url;
         this.isClosed = isClosed;
         this.url = url;
         this.reviewCount = reviewCount;
@@ -127,11 +127,11 @@ public class Business {
     }
 
     public String getImageUrl() {
-        return imageUrl;
+        return image_url;
     }
 
     public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+        this.image_url = imageUrl;
     }
 
     public Boolean getIsClosed() {

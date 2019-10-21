@@ -7,32 +7,82 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pearl_reads.R;
+import com.example.pearl_reads.SpiritualArrayAdapter;
+import com.example.pearl_reads.models.Bookstoresearch;
+import com.example.pearl_reads.models.Business;
+import com.example.pearl_reads.models.Category;
+import com.example.pearl_reads.network.YelpApi;
+import com.example.pearl_reads.network.YelpClient;
+
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class spiritualBooksActivity extends AppCompatActivity {
 
-    private TextView spiritualTextView;
-    private ListView spiritualListView;
 
-    private String[] spirituals = new String[] {"The Great Controversy", "The Desire of Ages",
-            "Steps to Christ", "Country Living", "Last Day Events", "In Heavenly Places",
-            "The Impending Conflict", "Early Writings", "Counsels on Health", "Education",
-            "The Story of Redemption", "Prophets and Kings", "Patriachs and Prophets",
-            "Christ Object lessons", "Blessings on the Mount"};
-
+    @BindView(R.id.spiritualTextView) TextView spiritualTextView;
+    @BindView(R.id.spilistView) ListView spiritualListView;
+    @BindView(R.id.errorTextView) TextView mErrorTextView;
+    @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spiritual_books);
 
-        spiritualListView = (ListView) findViewById(R.id.spilistView);
+        YelpApi client = YelpClient.getClient();
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, spirituals);
-        spiritualListView.setAdapter(adapter);
+        Call<Bookstoresearch> call = client.getBookstores("Canada", "bookstores");
+        call.enqueue(new Callback<Bookstoresearch>() {
+
+            @Override
+            public void onResponse(Call<Bookstoresearch> call, Response<Bookstoresearch> response) {
+                hideProgressBar();
+
+                if (response.isSuccessful()) {
+                    List<Business> bookstoreList = response.body().getBusinesses();
+                    String[] bookstore = new String[bookstoreList.size()];
+                    String[] categories = new String[bookstoreList.size()];
+
+                    for (int i = 0; i < bookstore.length; i++){
+                        bookstore[i] = bookstoreList.get(i).getName();
+                    }
+
+                    for (int i = 0; i < categories.length; i++) {
+                        Category category = bookstoreList.get(i).getCategories().get(0);
+                        categories[i] = category.getTitle();
+                    }
+
+                    ArrayAdapter adapter = new SpiritualArrayAdapter(spiritualBooksActivity.this, android.R.layout.simple_list_item_1, bookstore, categories);
+                    spiritualListView.setAdapter(adapter);
+
+                    showBookstores();
+                } else {
+                    showUnsuccessfulMessage();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<Bookstoresearch> call, Throwable t) {
+                hideProgressBar();
+                showFailureMessage();
+            }
+
+        });
+
+
+        ButterKnife.bind(this);
 
         spiritualListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -43,4 +93,24 @@ public class spiritualBooksActivity extends AppCompatActivity {
         });
 
     }
+
+    private void showFailureMessage() {
+        mErrorTextView.setText("Something went wrong. Please check your Internet connection and try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showUnsuccessfulMessage() {
+        mErrorTextView.setText("Something went wrong. Please try again later");
+        mErrorTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void showBookstores() {
+        spiritualListView.setVisibility(View.VISIBLE);
+        spiritualTextView.setVisibility(View.VISIBLE);
+    }
+
+    private void hideProgressBar() {
+        mProgressBar.setVisibility(View.GONE);
+    }
+
 }

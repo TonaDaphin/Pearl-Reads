@@ -35,19 +35,6 @@ public class fictionBooksActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
-//
-//    private String[] fictionals = new String[] {"Deception Point", "Hello, Darkness",
-//            "The Fault in our stars", "Divergent", "Insurgent", "The Hunger Games",
-//            "Knight", "Legend", "Warsong", "Orison",
-//            "Cosmos", "Nether", "Born A Crime",
-//            "Amethyst", "Onyx"};
-//
-//    private String[] fictionauthors = new String[] {"Deception Point", "Hello, Darkness",
-//            "The Fault in our stars", "Divergent", "Insurgent", "The Hunger Games",
-//            "Knight", "Legend", "Warsong", "Orison",
-//            "Cosmos", "Nether", "Born A Crime",
-//            "Amethyst", "Onyx"};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,9 +76,6 @@ public class fictionBooksActivity extends AppCompatActivity {
         });
 
         ButterKnife.bind(this);
-
-//        FictionArrayAdapter adapter = new FictionArrayAdapter(this, android.R.layout.simple_list_item_1, fictionals,fictionauthors); // must match constructor!
-//        fictionlistView.setAdapter(adapter);
 
         fictionlistView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

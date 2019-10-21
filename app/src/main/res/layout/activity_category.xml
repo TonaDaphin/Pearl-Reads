@@ -39,7 +39,7 @@
         android:id="@+id/buttontospiritual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Spiritual"
+        android:text="Canada"
         android:layout_alignParentBottom="true"
         android:layout_centerVertical="true"
         android:layout_marginBottom="300dp"
