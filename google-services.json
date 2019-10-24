@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "663442077366",
+    "firebase_url": "https://pearl-reads.firebaseio.com",
+    "project_id": "pearl-reads",
+    "storage_bucket": "pearl-reads.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663442077366:android:ecd26b61267d432f6d5817",
+        "android_client_info": {
+          "package_name": "com.example.pearl_reads"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663442077366-g4u7m6del68iikqgv25n47qq8m1dg5kf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVKmDnO_EOzg2_VJyeU0WBbjUtbKlo2fc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663442077366-g4u7m6del68iikqgv25n47qq8m1dg5kf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
