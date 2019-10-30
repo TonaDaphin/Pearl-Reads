@@ -5,56 +5,59 @@ import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Business {
 
     @SerializedName("id")
     @Expose
-    private String id;
+    public String id;
     @SerializedName("alias")
     @Expose
-    private String alias;
+    public String alias;
     @SerializedName("name")
     @Expose
-    private String name;
+    public String name;
     @SerializedName("image_url")
     @Expose
-    private String image_url;
+    public String image_url;
     @SerializedName("is_closed")
     @Expose
-    private Boolean isClosed;
+    public Boolean isClosed;
     @SerializedName("url")
     @Expose
-    private String url;
+    public String url;
     @SerializedName("review_count")
     @Expose
-    private Integer reviewCount;
+    public Integer reviewCount;
     @SerializedName("categories")
     @Expose
-    private List<Category> categories = null;
+    public List<Category> categories = null;
     @SerializedName("rating")
     @Expose
-    private Double rating;
+    public Double rating;
     @SerializedName("coordinates")
     @Expose
-    private Coordinates coordinates;
-    @SerializedName("transactions")
-    @Expose
-    private List<Object> transactions = null;
+    public Coordinates coordinates;
+//    @SerializedName("transactions")
+//    @Expose
+//    public List<Object> transactions = null;
     @SerializedName("price")
     @Expose
-    private String price;
+    public String price;
     @SerializedName("location")
     @Expose
-    private Location location;
+    public Location location;
     @SerializedName("phone")
     @Expose
-    private String phone;
+    public String phone;
     @SerializedName("display_phone")
     @Expose
-    private String displayPhone;
+    public String displayPhone;
     @SerializedName("distance")
     @Expose
-    private Double distance;
+    public Double distance;
 
     /**
      * No args constructor for use in serialization
@@ -69,7 +72,7 @@ public class Business {
      * @param distance
      * @param rating
      * @param coordinates
-     * @param transactions
+//     * @param transactions
      * @param url
      * @param isClosed
      * @param reviewCount
@@ -82,7 +85,7 @@ public class Business {
      * @param id
      * @param categories
      */
-    public Business(String id, String alias, String name, String image_url, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, List<Object> transactions, String price, Location location, String phone, String displayPhone, Double distance) {
+    public Business(String id, String alias, String name, String image_url, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, String price, Location location, String phone, String displayPhone, Double distance) {
         super();
         this.id = id;
         this.alias = alias;
@@ -94,7 +97,7 @@ public class Business {
         this.categories = categories;
         this.rating = rating;
         this.coordinates = coordinates;
-        this.transactions = transactions;
+//        this.transactions = transactions;
         this.price = price;
         this.location = location;
         this.phone = phone;
@@ -182,13 +185,13 @@ public class Business {
         this.coordinates = coordinates;
     }
 
-    public List<Object> getTransactions() {
-        return transactions;
-    }
+//    public List<Object> getTransactions() {
+//        return transactions;
+//    }
 
-    public void setTransactions(List<Object> transactions) {
-        this.transactions = transactions;
-    }
+//    public void setTransactions(List<Object> transactions) {
+//        this.transactions = transactions;
+//    }
 
     public String getPrice() {
         return price;
