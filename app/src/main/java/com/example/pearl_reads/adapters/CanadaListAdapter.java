@@ -1,6 +1,7 @@
 package com.example.pearl_reads.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pearl_reads.R;
 import com.example.pearl_reads.models.Business;
+import com.example.pearl_reads.ui.CanadaDetailActivity;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -44,7 +48,7 @@ public class CanadaListAdapter extends RecyclerView.Adapter<CanadaListAdapter.Bo
         return mBookstores.size();
     }
 
-    public class BookstoreViewHolder extends RecyclerView.ViewHolder {
+    public class BookstoreViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.bookstoreImageView) ImageView mBookstoreImageView;
         @BindView(R.id.bookstoreNameTextView) TextView mNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
@@ -56,6 +60,15 @@ public class CanadaListAdapter extends RecyclerView.Adapter<CanadaListAdapter.Bo
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
+        }
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, CanadaDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("restaurants", Parcels.wrap(mBookstores));
+            mContext.startActivity(intent);
         }
 
         public void bindBookstore(Business bookstore) {

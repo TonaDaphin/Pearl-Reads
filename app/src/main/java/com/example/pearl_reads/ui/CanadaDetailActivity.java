@@ -1,13 +1,13 @@
 package com.example.pearl_reads.ui;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Bundle;
+
 import com.example.pearl_reads.R;
-import com.example.pearl_reads.adapters.usaPagerAdapter;
+import com.example.pearl_reads.adapters.CanadaPagerAdapter;
 import com.example.pearl_reads.models.Business;
 
 import org.parceler.Parcels;
@@ -18,22 +18,22 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class usaDetailActivity extends AppCompatActivity {
+public class CanadaDetailActivity extends AppCompatActivity {
     @BindView(R.id.viewPager) ViewPager mViewPager;
 
-    private usaPagerAdapter adapterViewPager;
+    private CanadaPagerAdapter adapterViewPager;
     ArrayList<Business> mRestaurants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usa_detail);
+        setContentView(R.layout.activity_canada_detail);
         ButterKnife.bind(this);
 
         mRestaurants = Parcels.unwrap(getIntent().getParcelableExtra("restaurants"));
         int startingPosition = getIntent().getIntExtra("position", 0);
 
-        adapterViewPager = new usaPagerAdapter(getSupportFragmentManager(), mRestaurants);
+        adapterViewPager = new CanadaPagerAdapter(getSupportFragmentManager(), mRestaurants);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }
