@@ -6,20 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.pearl_reads.R;
-import com.example.pearl_reads.SpiritualArrayAdapter;
 import com.example.pearl_reads.adapters.CanadaListAdapter;
-import com.example.pearl_reads.adapters.FictionListAdapter;
 import com.example.pearl_reads.models.Bookstoresearch;
 import com.example.pearl_reads.models.Business;
-import com.example.pearl_reads.models.Category;
 import com.example.pearl_reads.network.YelpApi;
 import com.example.pearl_reads.network.YelpClient;
 

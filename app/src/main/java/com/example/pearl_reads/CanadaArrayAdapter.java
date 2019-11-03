@@ -3,12 +3,12 @@ package com.example.pearl_reads;
 import android.content.Context;
 import android.widget.ArrayAdapter;
 
-public class SpiritualArrayAdapter extends ArrayAdapter {
+public class CanadaArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private String[] mBookstores;
     private String[] mCategory;
 
-    public SpiritualArrayAdapter(Context mContext, int resource, String[] mBookstores, String[] mCategory) {
+    public CanadaArrayAdapter(Context mContext, int resource, String[] mBookstores, String[] mCategory) {
         super(mContext, resource);
         this.mContext = mContext;
         this.mBookstores = mBookstores;
