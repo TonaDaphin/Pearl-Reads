@@ -28,8 +28,8 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class CanadaDetailFragment extends Fragment {
-    @BindView(R.id.restaurantImageView) ImageView mImageLabel;
-    @BindView(R.id.restaurantNameTextView) TextView mNameLabel;
+    @BindView(R.id.bookstoreImageView) ImageView mImageLabel;
+    @BindView(R.id.bookstoreNameTextView) TextView mNameLabel;
     @BindView(R.id.cuisineTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;

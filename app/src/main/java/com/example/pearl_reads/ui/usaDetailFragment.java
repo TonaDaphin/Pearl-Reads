@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
  * A simple {@link Fragment} subclass.
  */
 public class usaDetailFragment extends Fragment {
-    @BindView(R.id.restaurantImageView)
+    @BindView(R.id.bookstoreImageView)
     ImageView mImageLabel;
     @BindView(R.id.bookstoreNameTextView)
     TextView mNameLabel;

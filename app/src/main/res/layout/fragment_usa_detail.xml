@@ -13,7 +13,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="180dp"
-            android:id="@+id/restaurantImageView"
+            android:id="@+id/bookstoreImageView"
             android:src="@drawable/yellow"
             android:scaleType="centerCrop" />
 

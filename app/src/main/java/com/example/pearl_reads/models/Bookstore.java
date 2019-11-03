@@ -16,7 +16,7 @@ public class Bookstore {
     double latitude;
     double longitude;
     List<String> categories = new ArrayList<>();
-    private String pushId;
+    public String pushId;
 
     public Bookstore(){}
 

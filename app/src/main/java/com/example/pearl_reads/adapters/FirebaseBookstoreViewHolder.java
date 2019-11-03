@@ -38,7 +38,7 @@ public class FirebaseBookstoreViewHolder extends RecyclerView.ViewHolder impleme
     }
 
     public void bindRestaurant(Bookstore bookstore){
-        ImageView bookstoreImageView = mView.findViewById(R.id.restaurantImageView);
+        ImageView bookstoreImageView = mView.findViewById(R.id.bookstoreImageView);
         TextView nameTextView = mView.findViewById(R.id.bookstoreNameTextView);
         TextView categoryTextView = mView.findViewById(R.id.categoryTextView);
         TextView ratingTextView = mView.findViewById(R.id.ratingTextView);
