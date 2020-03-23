@@ -14,7 +14,6 @@ An Android app for finding bookstores with their location and ratings
 ### Technologies used
 
 * Android
-* Java
 
 ### Authors
 
