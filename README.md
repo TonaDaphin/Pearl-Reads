@@ -7,6 +7,7 @@ An Android app for reading and uploading novels or books
 
 * Android
 
+
 ### Installing
 
 * Find and download it on PlayStore
@@ -14,6 +15,11 @@ An Android app for reading and uploading novels or books
 ### Technologies used
 
 * Android
+* Java
+
+### Screenshots
+
+[Listed Bookstores](src/res/drawable/2.png)
 
 ### Authors
 
