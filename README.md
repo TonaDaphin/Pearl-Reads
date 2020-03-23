@@ -19,7 +19,7 @@ An Android app for reading and uploading novels or books
 
 ### Screenshots
 
-[Listed Bookstores](app/src/res/drawable/3.png)
+[Listed Bookstores](app/src/main/res/drawable/3.png)
 
 ### Authors
 
