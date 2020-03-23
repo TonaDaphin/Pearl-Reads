@@ -17,7 +17,7 @@ An Android app for finding bookstores with their location and ratings
 
 ### Screenshots
 
-[Listed Bookstores](app/src/main/res/drawable/2.png)
+[Listed Bookstores](app/src/main/res/drawable/2.png)<br>
 [Selected Bookstore](app/src/main/res/drawable/3.png)
 
 ### Authors
