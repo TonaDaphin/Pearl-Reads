@@ -58,6 +58,18 @@ public class Business {
     @SerializedName("distance")
     @Expose
     public Double distance;
+    @SerializedName("website")
+    @Expose
+    public String website;
+    @SerializedName("latitude")
+    @Expose
+    public Double latitude;
+    @SerializedName("longitude")
+    @Expose
+    public Double longitude;
+    @SerializedName("pushId")
+    @Expose
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -84,8 +96,11 @@ public class Business {
      * @param location
      * @param id
      * @param categories
+//     * @param website
+//     * @param categories
+//     * @param categories
      */
-    public Business(String id, String alias, String name, String image_url, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, String price, Location location, String phone, String displayPhone, Double distance) {
+    public Business(String id, String alias, String name, String image_url, Boolean isClosed, String url, Integer reviewCount, List<Category> categories, Double rating, Coordinates coordinates, String price, Location location, String phone, String displayPhone, Double distance, String website, Double latitude, Double longitude) {
         super();
         this.id = id;
         this.alias = alias;
@@ -103,6 +118,9 @@ public class Business {
         this.phone = phone;
         this.displayPhone = displayPhone;
         this.distance = distance;
+        this.website=website;
+        this.latitude=latitude;
+        this.longitude= longitude;
     }
 
     public String getId() {
@@ -231,6 +249,37 @@ public class Business {
 
     public void setDistance(Double distance) {
         this.distance = distance;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public String getPushId(){
+        return pushId;
+    }
+
+    public void setPushId(String pushId){
+        this.pushId = pushId;
     }
 
 }
