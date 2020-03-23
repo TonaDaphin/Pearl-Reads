@@ -1,6 +1,6 @@
 # Pearl Reads
 
-An Android app for reading and uploading novels or books
+An Android app for finding bookstores with their location and ratings
 
 
 ### Prerequisites
@@ -14,6 +14,7 @@ An Android app for reading and uploading novels or books
 ### Technologies used
 
 * Android
+* Java
 
 ### Authors
 
